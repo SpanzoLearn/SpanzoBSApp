@@ -15,10 +15,12 @@ const ContactPage = () => {
         <TouchableOpacity onPress={() => navigation.navigate('HomePage')}>
           <Text style={styles.navItem}>Home</Text>
         </TouchableOpacity>
-        <Text style={styles.navItem}>Contact</Text>
-        <Text style={styles.navItem}>About</Text>
-        <TouchableOpacity style={styles.languageSwitch}>
-          <Text style={styles.languageText}>English</Text>
+        <Text style={styles.navItemActive}>Contact</Text>
+        <TouchableOpacity onPress={() => navigation.navigate('about')}>
+                  <Text style={styles.navItem}>About</Text>
+                </TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate('Location')}>
+                    <Text style={styles.navItem}>Location</Text>
         </TouchableOpacity>
       </View>
 
@@ -53,15 +55,15 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#f4f4f9',
-    padding: 20,
+    padding: 0,
+    
   },
   navbar: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    padding: 15,
+    padding: 35,
     backgroundColor: '#ff9900',
-    borderRadius: 10,
     marginBottom: 20,
   },
   navItem: {
@@ -69,16 +71,23 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontWeight: 'bold',
   },
+  navItemActive: {
+    fontSize: 18,
+    color: '#ff9900', // Background color ka text color ban gaya
+    fontWeight: 'bold',
+    backgroundColor: '#fff', // Text ka background color set kiya
+    padding: 5, // Thoda spacing bhi add karna acha lagega
+    borderRadius: 5, // Thoda rounded look ke liye
+},
   languageSwitch: {
-    backgroundColor: '#ff9900',
-    borderRadius: 5,
+    backgroundColor: '#fff',
     paddingHorizontal: 10,
     paddingVertical: 5,
+    borderRadius: 5,
   },
   languageText: {
     fontSize: 16,
-    fontWeight: 'bold',
-    color: '#fff',
+    color: '#333',
   },
   headerContainer: {
     alignItems: 'center',

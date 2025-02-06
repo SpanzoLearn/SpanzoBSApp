@@ -4,6 +4,7 @@ import { Linking } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { NavigationProp } from '@react-navigation/native';
 
+
 // Define the Service interface to specify the structure of each service
 interface Service {
   id: number;
@@ -58,15 +59,18 @@ const HomePage = () => {
     <View style={styles.container}>
       {/* Navigation Menu */}
       <View style={styles.navbar}>
-        <Text style={styles.navItem}>Home</Text>
+        <Text style={styles.navItemActive}>Home</Text>
         {/* Update Contact button to navigate to ContactPage */}
         <TouchableOpacity onPress={() => navigation.navigate('Contact')}>
           <Text style={styles.navItem}>Contact</Text>
         </TouchableOpacity>
-        <Text style={styles.navItem}>About</Text>
-        <View style={styles.languageSwitch}>
-          <Text style={styles.languageText}>English</Text>
-        </View>
+        <TouchableOpacity onPress={() => navigation.navigate('about')}>
+                          <Text style={styles.navItem}>About</Text>
+                        </TouchableOpacity>
+                        
+        <TouchableOpacity onPress={() => navigation.navigate('Location')}>
+              <Text style={styles.navItem}>Location</Text>
+        </TouchableOpacity>
       </View>
 
       {/* Services Cards */}
@@ -134,21 +138,30 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: 35,
     backgroundColor: '#ff9900',
+    marginBottom: 20,
   },
   navItem: {
     fontSize: 18,
-    fontWeight: 'bold',
     color: '#fff',
+    fontWeight: 'bold',
   },
+  navItemActive: {
+    fontSize: 18,
+    color: '#ff9900', // Background color ka text color ban gaya
+    fontWeight: 'bold',
+    backgroundColor: '#fff', // Text ka background color set kiya
+    padding: 5, // Thoda spacing bhi add karna acha lagega
+    borderRadius: 5, // Thoda rounded look ke liye
+},
   languageSwitch: {
-    backgroundColor: '#fff',
+    backgroundColor: '#007bff',
     paddingHorizontal: 10,
     paddingVertical: 5,
     borderRadius: 5,
   },
   languageText: {
     fontSize: 16,
-    color: '#333',
+    color: '#fff',
   },
   servicesContainer: {
     padding: 20,
